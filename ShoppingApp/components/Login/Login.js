@@ -2,7 +2,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import uuidV4 from 'uuid/v4'
-import { colors } from '../theme'
 
 class Login extends React.Component {
   state = {
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   container: {
-    backgroundColor: colors.primary,
+    backgroundColor: '#1976D2',
     flex: 1,
     justifyContent: 'center'
   },

@@ -1,77 +1,41 @@
 // ex01 - React Native Tutorial - Networking
-import {useEffect, useState, Component} from 'react';
-import {ActivityIndicator, FlatList, Text, View, Image, StyleSheet, Platform} from 'react-native';
+import React, {Component} from 'react';
+import {LogBox} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const App = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+import Login from './components/Login/Login';
+import ProductGallery from './components/Products/ProductGallery';
+import Cart from './components/Cart/Cart';
 
-  const getSuperheroes = async () => {
-    try {
-      const response = await fetch('https://raw.githubusercontent.com/ashjayne/cs624_API/main/API_test.json');
-      const json = await response.json();
-      setData(json.products);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
-  useEffect(() => {
-    getSuperheroes();
-  }, []);
+const Tab = createBottomTabNavigator();
 
-  return (
-    <View style={{flex: 1, padding: 24, paddingTop: 40}}>
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <FlatList
-          data={data}
-          keyExtractor={({name}) => name}
-          renderItem={({item}) => (
-            <View style={styles.container}>
-              <View style={styles.productContainer}>
-                <Text>
-                  {item.name} {'\n'}
-                  by {item.author} {'\n'}
-                  Published {item.publishDate} {'\n'}
-                  Published by {item.publisher} {'\n'}
-                  ${item.price} {'\n'}
-                </Text>
-                  <Image source={{uri: item.imgURL}}
-                    style={styles.productImage} />
-              </View>
-            </View>
-          )}
-        />
-      )}
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
-  productContainer: {
-    alignItems: 'center',
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 5,
-    paddingRight: 5,
-    borderWidth: 2,
-    borderRadius: 20,
-    width: 200,
-  },
-  productImage: {
-    width: 100,
-    height: 100
+export default class App extends Component {
+  state = {
+    username: '',
+    password: ''
   }
-})
 
-export default App;
+/*  addCity = (city) => {
+    const cities = this.state.cities
+    cities.push(city)
+    this.setState({ cities })
+  }
+*/
+
+  render() {
+    return (
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Login" component={Login} />
+          <Tab.Screen name="Product Gallery" component={ProductGallery} />
+          <Tab.Screen name="Cart" component={Cart} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
