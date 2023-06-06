@@ -1,8 +1,9 @@
 // ex01 - React Native Tutorial - Networking
-import React, {Component} from 'react';
+import React, {Component,useEffect, useState} from 'react';
 import {LogBox} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ActivityIndicator, FlatList, Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Login from './components/Login/Login';
 import ProductGallery from './components/Products/ProductGallery';
