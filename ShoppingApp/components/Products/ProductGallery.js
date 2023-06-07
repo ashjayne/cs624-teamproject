@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View, Image, StyleSheet} from 'react-native';
-import CartButton from '../Cart/CartButton';
 
 const ProductGallery = () => {
   const [isLoading, setLoading] = useState(true);
@@ -46,7 +45,6 @@ const ProductGallery = () => {
                   <Text style={styles.productPrice}>
                     ${item.price} {'\n'}
                   </Text>
-                    <CartButton />
                 </View>
               </View>
             )}
