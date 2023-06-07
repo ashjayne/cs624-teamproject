@@ -1,4 +1,4 @@
-import {useEffect, useState, Component} from 'react';
+import {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View, Image, StyleSheet} from 'react-native';
 import CartButton from '../Cart/CartButton';
 
