@@ -6,7 +6,7 @@ import CartTotal from './CartTotal';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  const [isCartVisible, setCartVisible] = useState(false);
+  const [data, isCartVisible, setCartVisible] = useState(false);
 
   const handleAddToCart = (item) => {
     setCartItems([...cartItems, item]);

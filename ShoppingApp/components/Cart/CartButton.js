@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 const CartButton = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.buttonText}>Cart</Text>
+      <Text style={styles.buttonText}>Add to Cart</Text>
     </TouchableOpacity>
   );
 };
