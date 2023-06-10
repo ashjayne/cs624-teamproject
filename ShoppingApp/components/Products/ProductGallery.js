@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Text, View, Image, StyleSheet} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 const ProductGallery = () => {
   const [isLoading, setLoading] = useState(true);
@@ -43,8 +43,11 @@ const ProductGallery = () => {
                   <Image source={{uri: item.imgURL}}
                       style={styles.productImage} />
                   <Text style={styles.productPrice}>
-                    ${item.price} {'\n'}
+                    ${item.price}
                   </Text>
+                  <TouchableOpacity style={styles.addToCartButton}>
+                    <Text style={styles.addToCartButtonText}>Add to Cart</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             )}
@@ -80,6 +83,17 @@ const ProductGallery = () => {
       fontWeight: 'bold',
     },
     productPrice: {
+      fontWeight: 'bold',
+    },
+    addToCartButton: {
+      marginTop: 10,
+      backgroundColor: '#007AFF',
+      padding: 10,
+      borderRadius: 5,
+    },
+    addToCartButtonText: {
+      color: '#FFF',
+      fontSize: 16,
       fontWeight: 'bold',
     }
   })

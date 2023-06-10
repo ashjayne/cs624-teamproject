@@ -24,8 +24,8 @@ export default class App extends Component {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Login" component={Login} />
-          <Tab.Screen name="Product Gallery" component={ProductGallery} />
-          <Tab.Screen name="Cart" component={Cart} />
+          <Tab.Screen name="Products" component={ProductGallery} />
+          <Tab.Screen name="View Cart" component={Cart} />
         </Tab.Navigator>
       </NavigationContainer>
     );
